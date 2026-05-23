@@ -4,9 +4,9 @@ import Markdown from "@components/misc/Markdown.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import type { SponsorMethods, SponsorThanks } from "@/types/config";
 import sponsorMethodsData from "../content/spec/sponsor-methods.json";
 import sponsorThanksData from "../content/spec/sponsor-thanks.json";
-import type { SponsorMethods, SponsorThanks } from "../types/sponsor";
 
 const sponsorMethods = sponsorMethodsData as SponsorMethods;
 const sponsorThanks = sponsorThanksData as SponsorThanks;

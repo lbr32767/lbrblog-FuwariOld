@@ -123,6 +123,23 @@ export type SponsorMethod = {
 	description?: string;
 };
 
+export type SponsorMethods = {
+	methods: SponsorMethod[];
+};
+
+export type Sponsor = {
+	name: string;
+	avatar?: string;
+	amount: string;
+	message?: string;
+	date: string;
+	method: string;
+};
+
+export type SponsorThanks = {
+	sponsors: Sponsor[];
+};
+
 export type SponsorConfig = {
 	enable: boolean;
 	description?: string;
