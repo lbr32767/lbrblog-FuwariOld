@@ -1,0 +1,82 @@
+---
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { friendLinks } from "../config";
+
+const title = i18n(I18nKey.friends);
+
+function getFaviconUrl(url: string): string {
+  try {
+    const hostname = new URL(url).hostname;
+    return `https://favicon.im/${hostname}?larger=true`;
+  } catch {
+    return "";
+  }
+}
+---
+
+<MainGridLayout title={title} description={title}>
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 relative w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          friendLinks.map((friend) => (
+            <a
+              href={friend.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 p-4 rounded-xl bg-[var(--card-bg)] hover:bg-[var(--primary)]/[0.08] transition-colors duration-200 border border-[var(--primary)]/[0.12]"
+            >
+              <div class="flex-shrink-0">
+                {
+                  friend.avatar ? (
+                    <img
+                      src={friend.avatar}
+                      alt={friend.name}
+                      class="w-14 h-14 rounded-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <img
+                      src={getFaviconUrl(friend.url)}
+                      alt={friend.name}
+                      class="w-14 h-14 rounded-full object-cover friend-avatar-fallback"
+                      loading="lazy"
+                    />
+                  )
+                }
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="font-semibold text-[var(--primary)] truncate">
+                  {friend.name}
+                </div>
+                {
+                  friend.description && (
+                    <div class="text-sm text-[var(--primary)]/60 truncate mt-0.5">
+                      {friend.description}
+                    </div>
+                  )
+                }
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</MainGridLayout>
+
+<script is:inline>
+  document.querySelectorAll('.friend-avatar-fallback').forEach((img) => {
+    img.addEventListener('error', function () {
+      const div = document.createElement('div');
+      div.className = 'w-14 h-14 rounded-full bg-[var(--primary)]/[0.12] flex items-center justify-center';
+      div.style.color = 'var(--primary)';
+      div.style.fontSize = '1.25rem';
+      div.style.fontWeight = 'bold';
+      div.textContent = this.alt.charAt(0);
+      this.replaceWith(div);
+    });
+  });
+</script>

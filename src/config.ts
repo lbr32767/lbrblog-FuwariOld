@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	FriendLink,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -38,7 +39,7 @@ export const siteConfig: SiteConfig = {
 	],
 };
 export const navBarConfig: NavBarConfig = {
-	links: [LinkPreset.Home, LinkPreset.Archive, LinkPreset.About],
+	links: [LinkPreset.Home, LinkPreset.Archive, LinkPreset.About, LinkPreset.Friends],
 };
 
 export const profileConfig: ProfileConfig = {
@@ -75,3 +76,12 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// 请选择深色主题，因为此博客主题目前仅支持深色背景
 	theme: "github-dark",
 };
+
+export const friendLinks: FriendLink[] = [
+	{
+		name: "二叉树树",
+		url: "https://2x.nz/",
+		avatar: "",
+		description: "二叉树树的博客",
+	},
+];
