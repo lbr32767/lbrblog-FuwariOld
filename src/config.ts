@@ -30,12 +30,11 @@ export const siteConfig: SiteConfig = {
 		depth: 2, // 目录中显示的最大标题深度，范围为 1 到 3
 	},
 	favicon: [
-		// 将此数组留空以使用默认 favicon
-		// {
-		//   src: '/favicon/icon.png',    // favicon 的路径，相对于 /public 目录
+		{
+		  src: '/favicon/favicon.png',    // favicon 的路径，相对于 /public 目录
 		//   theme: 'light',              // （可选）'light' 或 'dark'，仅在您有亮色和暗色模式的不同 favicon 时设置
 		//   sizes: '32x32',              // （可选）favicon 的尺寸，仅在您有不同尺寸的 favicon 时设置
-		// }
+		}
 	],
 };
 export const navBarConfig: NavBarConfig = {
