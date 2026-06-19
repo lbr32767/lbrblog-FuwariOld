@@ -1,0 +1,119 @@
+.custom-md {
+    .TableFounder,
+    .TableStriped,
+    .TableCard,
+    .TableBordered {
+        @apply w-full text-left my-4;
+        font-size: 0.9375rem;
+    }
+
+    .TableFounder {
+        border-collapse: collapse;
+    }
+
+    .TableFounder th,
+    .TableFounder td,
+    .TableStriped th,
+    .TableStriped td,
+    .TableCard th,
+    .TableCard td,
+    .TableBordered th,
+    .TableBordered td {
+        @apply px-4 py-3;
+    }
+
+    .TableFounder th,
+    .TableFounder td {
+        border-bottom: 1px solid var(--line-divider);
+    }
+
+    .TableFounder th {
+        @apply font-semibold;
+        color: var(--primary);
+        background: var(--btn-regular-bg);
+    }
+
+    .TableFounder tr {
+        @apply transition;
+    }
+
+    .TableFounder tbody tr:hover {
+        background: var(--btn-plain-bg-hover);
+    }
+
+    .TableStriped {
+        border-collapse: collapse;
+    }
+
+    .TableStriped th,
+    .TableStriped td {
+        border-bottom: 1px solid var(--line-divider);
+    }
+
+    .TableStriped th {
+        @apply font-semibold;
+        color: var(--primary);
+        background: var(--btn-regular-bg);
+    }
+
+    .TableStriped tbody tr:nth-child(even) {
+        background: var(--btn-regular-bg);
+    }
+
+    .TableStriped tbody tr:nth-child(even):hover {
+        background: var(--btn-plain-bg-hover);
+    }
+
+    .TableCard {
+        @apply rounded-[var(--radius-large)] overflow-hidden;
+        background: var(--card-bg);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .TableCard th {
+        background: var(--primary);
+        color: white;
+    }
+
+    .TableCard th:first-child {
+        border-top-left-radius: var(--radius-large);
+    }
+
+    .TableCard th:last-child {
+        border-top-right-radius: var(--radius-large);
+    }
+
+    .TableCard td,
+    .TableCard th {
+        border: none;
+    }
+
+    .TableCard tbody tr:not(:last-child) td {
+        border-bottom: 1px solid var(--line-divider);
+    }
+
+    .TableBordered {
+        @apply rounded-[var(--radius-large)] overflow-hidden;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .TableBordered th:first-child {
+        border-top-left-radius: var(--radius-large);
+    }
+
+    .TableBordered th:last-child {
+        border-top-right-radius: var(--radius-large);
+    }
+
+    .TableBordered th,
+    .TableBordered td {
+        border: 1px solid var(--line-divider);
+    }
+
+    .TableBordered th {
+        background: var(--btn-regular-bg);
+    }
+}
