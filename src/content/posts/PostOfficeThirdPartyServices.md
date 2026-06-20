@@ -5,7 +5,7 @@ description: '邮件服务折腾历程'
 image: ''
 tags: [postoffice]
 category: '部署'
-draft: false 
+draft: true 
 lang: ''
 ---
 几种域名邮箱方案
