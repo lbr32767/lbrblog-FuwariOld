@@ -158,6 +158,17 @@ export const friendGroups: FriendGroup[] = [
 		],
 	},
 ];
+export const postConfig = {
+	// 声明弹窗标题
+	disclaimerTitle: "阅读声明",
+	// 声明内容段落
+	disclaimerContent: [
+		"本站发布的所有技术内容、代码示例及教程仅供学习、研究与合法用途。",
+		"任何用户因违反法律法规或滥用本站内容而导致的后果，均由使用者自行承担，与本站及作者无关。",
+		"请在使用前仔细阅读并理解相关法律法规，确保您的行为符合当地法律要求。",
+	],
+};
+
 /* 
 # 配置功能说明
 

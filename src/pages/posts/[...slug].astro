@@ -9,7 +9,7 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
-import { licenseConfig } from "src/config";
+import { licenseConfig, postConfig } from "src/config";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
 import PostMetadata from "../../components/PostMeta.astro";
 import { profileConfig, siteConfig } from "../../config";
@@ -27,6 +27,8 @@ const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();
+
+const needsDisclaimer = remarkPluginFrontmatter?.needsDisclaimer === true;
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -48,6 +50,7 @@ const jsonLd = {
 ---
 <MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} headings={headings}>
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",
             {}
@@ -135,5 +138,18 @@ const jsonLd = {
             </div>}
         </a>
     </div>
+
+    {needsDisclaimer && (
+        <script is:inline define:vars={{ slug: entry.slug }}>
+            (function() {
+                var key = 'disclaimer_' + slug;
+                if (!sessionStorage.getItem(key)) {
+                    window.location.replace('/posts/disclaimer/' + slug + '/');
+                } else {
+                    sessionStorage.removeItem(key);
+                }
+            })();
+        </script>
+    )}
 
 </MainGridLayout>

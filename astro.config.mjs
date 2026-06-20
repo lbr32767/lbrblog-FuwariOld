@@ -23,6 +23,7 @@ import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import { remarkDisclaimer } from "./src/plugins/remark-disclaimer.mjs";
 import { remarkTableDirective } from "./src/plugins/remark-table-directive.mjs";
 
 // https://astro.build/config
@@ -116,6 +117,7 @@ export default defineConfig({
 			remarkGithubAdmonitionsToDirectives,
 			remarkDirective,
 			remarkTableDirective,
+			remarkDisclaimer,
 			remarkSectionize,
 			parseDirectiveNode,
 		],
