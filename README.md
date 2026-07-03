@@ -1,6 +1,6 @@
 参考:[部署博客](https://blog.hx0.top/posts/blogdeploy/)
 
-一下仅适用于专业人士，普通用户请不要尝试。
+一下仅适用于专业人士，普通用户请不要尝试。(git都不会用的)
 
 # 🍥Fuwari  
 ![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
